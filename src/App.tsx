@@ -26,7 +26,7 @@ function App() {
   }
   return (
     <div>
-      <h1 className="text-4xl mb-10 text-center font-bold underline underline-offset-4">
+      <h1 onClick={()=>setPageNumber(0)} className="text-4xl mb-10 cursor-pointer text-center font-bold underline underline-offset-4">
         Users Database
       </h1>
       <Users users={users} />
