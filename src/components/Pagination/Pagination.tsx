@@ -76,7 +76,7 @@ const Pagination: React.FC<PaginationProps> = ({
       {!(currentPage > 0) && (
         <span
           onClick={() => setPageNumber(currentPage + 3)}
-          className="hidden md:bg-red-700 md:block cursor-pointer px-4 py-2 mx-2 text-black bg-gray-100 border"
+          className="hidden md:block cursor-pointer px-4 py-2 mx-2 text-black bg-gray-100 border"
         >
           {currentPage + 4}
         </span>
