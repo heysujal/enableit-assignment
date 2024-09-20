@@ -1,11 +1,21 @@
-import { useState, useEffect } from "react";
-
+import { useState, useEffect, useCallback } from "react";
+interface User {
+    ID: string;
+    JobTitle: string;
+    EmailAddress: string;
+    FirstNameLastName: string;
+    Email: string;
+    Phone: string;
+    Company: string;
+  }
+  
 export const useFetchUsers = (pageNumber:number) => {
     const USERS_API_ENDPOINT = `https://give-me-users-forever.vercel.app/api/users/${pageNumber}/next`;
-    const [users, setUsers] = useState([]);
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState();
-    const fetchUsers = async () => {
+    const [users, setUsers] = useState<User[]>([]);
+    const [loading, setLoading] = useState<boolean>(false)
+    const [error, setError] = useState<string | null>(null);
+
+    const fetchUsers = useCallback( async () => {
         setLoading(true)
         try {
             const response = await fetch(USERS_API_ENDPOINT)
@@ -18,10 +28,11 @@ export const useFetchUsers = (pageNumber:number) => {
         finally{
             setLoading(false)
         }
-    }
+    }, [USERS_API_ENDPOINT]);
+
     useEffect(() => {
         fetchUsers();
-    }, [pageNumber])
+    }, [pageNumber, fetchUsers])
 
     return {users, loading, error}
 }
