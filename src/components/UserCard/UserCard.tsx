@@ -21,7 +21,7 @@ const UserCard: React.FC<UserCardProps> = ({
   company,
 }) => {
   return (
-    <div className="w-[300px] m-2 h-[300px] bg-white rounded-lg">
+    <div className="w-[300px] m-2 h-[300px] bg-white rounded-lg transition hover:scale-105">
       <div className="px-6 py-4">
         <h2 className="text-xl font-bold text-gray-800 mb-2">{fullName}</h2>
         <p className="text-gray-600 mb-1">
