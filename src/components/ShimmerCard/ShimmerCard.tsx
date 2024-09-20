@@ -1,5 +1,13 @@
-
-const ShimmerCard: React.FC = ({
+interface ShimmerCardProps {
+    id?: string;
+    jobTitle?: string;
+    emailAddress?: string;
+    fullName?: string;
+    email?: string;
+    phone?: string;
+    company?: string;
+}
+const ShimmerCard: React.FC<ShimmerCardProps> = ({
   id,
   jobTitle,
   emailAddress,
@@ -9,7 +17,7 @@ const ShimmerCard: React.FC = ({
   company,
 }) => {
   return (
-    <div className="shimmer-card w-[300px] m-2 h-[300px] bg-white shadow-lg rounded-lg overflow-hidden">
+    <div className="shimmer-card w-[300px] m-2 h-[300px] bg-white shadow-lg rounded-lg">
       <div className="px-6 py-4">
         <h2 className="animate-pulse text-transparent bg-slate-400 text-xl font-semibold text-gray-800 mb-2 w-32">{fullName ?? 'John'}</h2>
         <p className="animate-pulse text-transparent bg-slate-400 text-gray-600 mb-1">
